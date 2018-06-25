@@ -1,14 +1,21 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { createStackNavigator } from 'react-navigation';
+import { View, Text, TextInput, Button, TouchableHighlight } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
-
-export default class Login extends React.Component {
-  render() {
-    return (
-      <View style={{flex: 1, alignItems: 'center', alignSelf: 'center', justifyContent: 'center'}}>
-        <Text> Hello World </Text>
-      </View>
-    );
-  }
-}
+export default props => (
+	<View style={{ flex: 1, padding: 10 }}>
+		<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+			<Text style={{ fontSize: 25 }} >Titulo </Text>
+		</View>
+		<View style={{ flex: 2}}>
+		<TextInput style={{ fontSize: 20, height: 45 }} placeholder='Login' />
+		<TextInput style={{ fontSize: 20, height: 45 }} placeholder='Senha' />
+		<TouchableHighlight onPress={() => Actions.cadastro() }>
+		<Text style={{ fontSize: 20 }}> Cadastre-se </Text>
+		</TouchableHighlight>
+		</View>
+		<View style={{ flex: 2}}> 
+	    <Button title="Acessar" color='#115E54' onPress={() => false} />
+	</View>
+</View>
+	);
