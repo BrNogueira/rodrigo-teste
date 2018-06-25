@@ -1,37 +1,26 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { createStackNavigator } from 'react-navigation';
-import Login from './src/screens/login/login';
+import firebase from 'firebase';
+import React, {Component } from 'react';
+import { AppRegistry,View, Text, Button } from 'react-native';
+import login from './src/Components/login.js';
+import cadastro from './src/Components/cadastro.js';
 
+export default props => (
+	<login />
+	)
+class App extends Component {
 
-let AppNavigator = createStackNavigator(
-  
-  {
-    Login: {
-      screen: Login
-    }
-  },
+ componentWillMount() {
 
-  {
-    initialRouteName: 'Login',
-    headerMode: 'none'
-  }
+  var config = {
+    apiKey: "AIzaSyAbs8u69hfY2tQJrEXYSltpVg_eK6KL-cI",
+    authDomain: "rodrigo-teste-f06c4.firebaseapp.com",
+    databaseURL: "https://rodrigo-teste-f06c4.firebaseio.com",
+    projectId: "rodrigo-teste-f06c4",
+    storageBucket: "rodrigo-teste-f06c4.appspot.com",
+    messagingSenderId: "507200939512"
+  };
 
-);
-
-export default class App extends React.Component {
-  render() {
-    return (
-      <AppNavigator />
-    );
-  }
+  firebase.initializeApp(config);
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+AppRegistry.registerComponent ('rodrigo-teste', => App);
